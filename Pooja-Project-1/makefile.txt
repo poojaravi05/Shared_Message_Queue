@@ -1,0 +1,10 @@
+all:main
+
+main : main.o
+	gcc -Wall -o main main.o -lpthread -lm
+
+main.o : main.c shared_queue_lib.c shared_queue_lib.h rdtsc.h
+	gcc -c main.c -lpthread -lm
+
+clean:
+	rm main.o main
